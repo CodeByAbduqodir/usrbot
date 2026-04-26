@@ -1,0 +1,45 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+
+# Virtual env
+venv/
+env/
+ENV/
+.venv/
+
+# Telegram sessions — дают полный доступ к аккаунту
+*.session
+*.session-journal
+sessions/
+
+# Личные данные — API ключи и банковские карты
+config.py
+.env
+
+# Личные списки
+badwords.txt
+keepdelete.txt
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Claude Code
+.claude/
+
+# Логи
+*.log
+logs/
