@@ -25,6 +25,9 @@ config.py
 # Личные списки
 badwords.txt
 keepdelete.txt
+keepdelete.json
+afk.json
+shortcuts.json
 
 # macOS
 .DS_Store
@@ -43,3 +46,6 @@ keepdelete.txt
 # Логи
 *.log
 logs/
+
+# Локальный контекст для Codex
+context.md

@@ -17,8 +17,15 @@ def _match_card(cards, selector: str):
         return [cards[i]] if 0 <= i < len(cards) else []
     return [c for c in cards if any(
         selector in str(c.get(f, "")).lower()
-        for f in ("title", "holder", "note")
+        for f in ("title", "holder", "note", "number")
     )]
+
+
+def _format_card_number(number: str) -> str:
+    digits = "".join(ch for ch in str(number) if ch.isdigit())
+    if not digits:
+        return str(number)
+    return " ".join(digits[i:i + 4] for i in range(0, len(digits), 4))
 
 
 def _build_message(cards):
@@ -29,20 +36,20 @@ def _build_message(cards):
         return sum(_utf16_len(l) + 1 for l in lines)
 
     for i, card in enumerate(cards):
-        title  = card.get("title", f"Card {i + 1}")
+        title = card.get("title", f"Card {i + 1}")
         holder = card.get("holder", "")
-        number = card.get("number", "")
-        note   = card.get("note", "")
+        number = _format_card_number(card.get("number", ""))
+        note = card.get("note", "")
 
-        header = f"💳  {title}"
+        header = f"💳 {title.upper()}"
         if note:
-            header += f"  ·  {note}"
+            header += f"\n   {note}"
         lines.append(header)
 
         if holder:
-            lines.append(f"👤  {holder}")
+            lines.append(f"👤 {holder}")
 
-        prefix = "🔢  "
+        prefix = "📋 "
         entities.append(types.MessageEntity(
             type=enums.MessageEntityType.BANK_CARD,
             offset=current_offset() + _utf16_len(prefix),
@@ -51,7 +58,7 @@ def _build_message(cards):
         lines.append(f"{prefix}{number}")
 
         if i < len(cards) - 1:
-            lines.append("")
+            lines.append("━━━━━━━━━━━━")
 
     return "\n".join(lines), entities
 
