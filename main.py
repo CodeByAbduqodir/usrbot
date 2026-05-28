@@ -9,7 +9,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-from handlers import ping, status, card, logger as logger_handler, badword, mute, keepdelete, help, info, afk, shortcuts
+from handlers import ping, status, logger as logger_handler, badword, mute, keepdelete, help, info, afk, shortcuts
 
 def start_bot():
     logger.info("🚀 Starting Userbot...")

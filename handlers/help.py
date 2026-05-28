@@ -10,11 +10,6 @@ HELP_TEXT = f"""**Userbot — команды** (`{config.CMD_PREFIX}`)
 `{config.CMD_PREFIX}status` — CPU, RAM, диск, аптайм сервера
 `{config.CMD_PREFIX}help` — это сообщение
 
-**Карты**
-`{config.CMD_PREFIX}card` — красиво показать все карты
-`{config.CMD_PREFIX}card humo` — найти карту по названию/заметке/номеру
-→ Номер отправляется как банковская сущность Telegram: тапнул — скопировал
-
 **Чёрный список слов**
 `{config.CMD_PREFIX}badword <слово>` — добавить слово
 `{config.CMD_PREFIX}badword` _(ответом)_ — добавить все слова из сообщения
@@ -40,6 +35,8 @@ HELP_TEXT = f"""**Userbot — команды** (`{config.CMD_PREFIX}`)
 `{config.CMD_PREFIX}shrug`, `{config.CMD_PREFIX}brb`, `{config.CMD_PREFIX}gm`, `{config.CMD_PREFIX}gn`, `{config.CMD_PREFIX}ty`
 `{config.CMD_PREFIX}shortcut list` — список
 `{config.CMD_PREFIX}shortcut add name текст` — добавить свой
+`{config.CMD_PREFIX}shortcut add humo` _(ответом)_ — сохранить реквизиты из сообщения
+→ Для карт удобнее делать `{config.CMD_PREFIX}humo`, `{config.CMD_PREFIX}visa` и т.д.
 
 **Инфо**
 `{config.CMD_PREFIX}id` — ID текущего чата; ответом — ID юзера и сообщения

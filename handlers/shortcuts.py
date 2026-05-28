@@ -64,11 +64,20 @@ def shortcut_command(client, message):
 
     action = args[0].lower()
     if action == "add":
-        if len(args) < 3:
-            message.edit_text("❌ Формат: `.shortcut add name текст`")
+        if len(args) < 2:
+            message.edit_text("❌ Формат: `.shortcut add name текст` или ответом `.shortcut add name`")
             return
         name = args[1].lower().strip()
         text = " ".join(args[2:]).strip()
+        if not text and message.reply_to_message:
+            text = (
+                message.reply_to_message.text
+                or message.reply_to_message.caption
+                or ""
+            ).strip()
+        if not text:
+            message.edit_text("❌ Дай текст шортката или ответь на сообщение.")
+            return
         if not name.isalnum():
             message.edit_text("❌ Название шортката должно быть из букв и цифр.")
             return
