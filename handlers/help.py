@@ -35,8 +35,9 @@ HELP_TEXT = f"""**Userbot — команды** (`{config.CMD_PREFIX}`)
 `{config.CMD_PREFIX}shrug`, `{config.CMD_PREFIX}brb`, `{config.CMD_PREFIX}gm`, `{config.CMD_PREFIX}gn`, `{config.CMD_PREFIX}ty`
 `{config.CMD_PREFIX}shortcut list` — список
 `{config.CMD_PREFIX}shortcut add name текст` — добавить свой
+`{config.CMD_PREFIX}shortcut add name строка1\\nстрока2` — сохранить с переносами
 `{config.CMD_PREFIX}shortcut add humo` _(ответом)_ — сохранить реквизиты из сообщения
-→ Для карт удобнее делать `{config.CMD_PREFIX}humo`, `{config.CMD_PREFIX}visa` и т.д.
+→ Оберни нужный кусок в обратные кавычки для mono; номера карт становятся mono автоматически
 
 **Инфо**
 `{config.CMD_PREFIX}id` — ID текущего чата; ответом — ID юзера и сообщения
